@@ -10,7 +10,7 @@ import com.example.demo.model.Persona;
 import org.springframework.stereotype.Repository;
 
 
-@Repository("fakedao") //convierte el repositorio en un bean implementable en el resto
+@Repository("fakedao") //convierte el repositorio en un bean implementable en el resto y es la que se comunica con la base de datos
 public class FakePersonaDataAccessService implements PersonaDao{
 
     private static List<Persona> DB = new ArrayList<>();
@@ -57,6 +57,4 @@ public class FakePersonaDataAccessService implements PersonaDao{
                 })
                 .orElse(0);
     }
-
-   
 }

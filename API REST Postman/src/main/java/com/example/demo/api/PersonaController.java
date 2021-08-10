@@ -6,6 +6,7 @@ import java.util.UUID;
 import com.example.demo.model.Persona;
 import com.example.demo.service.PersonaServicio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,13 +19,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 //* EL CONTROLADOR ES EL QUE ESTA EXPUESTO A LA API REST
 
-@RequestMapping("api/v1/persona")
+@RequestMapping("restapi/v1/persona")
 @RestController //*RestController class que nos da acceso a algunos métodos
+@CrossOrigin(origins = "http://localhost:3000")
 public class PersonaController {
 
     private final PersonaServicio personaServicio;
 
-    @Autowired //*se vuelve a wirear con el servicio, aun no se bien porque
+    @Autowired //*se vuelve a wirear con el servicio, y permite emplearlo sin necesidad de INSTANCIAR
     public PersonaController(PersonaServicio personaServicio){
         this.personaServicio = personaServicio;
     }
